@@ -1,0 +1,4 @@
+---
+repository:
+  description: Install cron and schedule jobs on a system.
+  homepage: https://github.com/tehtbl/ansible-role-cron
