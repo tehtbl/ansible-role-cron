@@ -4,12 +4,15 @@
 # ------------------------------------------------------------------------
 
 _cron_packages:
-  Debian:
+  default:
     - cron
+#  Debian:
+#    - cron
 
 cron_packages: "{{ _cron_packages[ansible_os_family] | default(_cron_packages['default']) }}"
 
 _cron_service:
-  Debian: cron
+  default: cron
+#  Debian: cron
 
 cron_service: "{{ _cron_service[ansible_os_family] | default(_cron_service['default']) }}"

@@ -9,7 +9,7 @@ Install cron and schedule jobs on a system.
 Example Playbook
 ================
 
-This example is taken from `molecule/resources/playbook.yml` and is tested on each push, pull request and release.
+This example is taken from `molecule/default/playbook.yml` and is tested on each push, pull request and release.
 
 ```yaml
 ---
@@ -19,34 +19,7 @@ This example is taken from `molecule/resources/playbook.yml` and is tested on ea
   gather_facts: yes
 
   roles:
-    - tehtbl.cron
-
-```
-
-The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
-
-```yaml
----
-- name: Converge
-  hosts: all
-  become: yes
-  gather_facts: no
-
-  roles:
-    - tehtbl.bootstrap
-
-```
-
-After running this role, this playbook runs to verify that everything works, this may be a good example how you can use this role.
-
-```yaml
----
-- name: Verify
-  hosts: all
-  become: yes
-  gather_facts: yes
-
-  roles:
+    - role: tehtbl.bootstrap
     - role: tehtbl.cron
       cron_jobs:
         - name: requested job
@@ -66,15 +39,7 @@ After running this role, this playbook runs to verify that everything works, thi
 Role Variables
 ==============
 
-These variables are set in `defaults/main.yml`:
-
-```yaml
----
-# ------------------------------------------------------------------------
-# defaults file for cron
-# ------------------------------------------------------------------------
-
-```
+There are no default role variables set.
 
 Requirements
 ============
