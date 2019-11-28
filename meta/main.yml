@@ -18,8 +18,10 @@ galaxy_info:
         - bionic
 
   galaxy_tags:
-    - bootstrap
-    - installer
+    - cron
+    - crond
+    - scheduler
+    - scheduling
     - server
     - system
     - debian
