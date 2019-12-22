@@ -35,3 +35,9 @@
     - restart cron
   when:
     - cron_jobs is defined
+
+# ------------------------------------------------------------------------
+# flush handlers
+# ------------------------------------------------------------------------
+- name: flush handlers
+  meta: flush_handlers
