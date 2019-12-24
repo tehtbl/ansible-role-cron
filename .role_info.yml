@@ -1,0 +1,9 @@
+---
+gid: 44971
+name: cron
+desc: Install cron and schedule jobs on a system.
+reqs:
+  - tehtbl.bootstrap
+tags:
+  - cron
+  - schedule
