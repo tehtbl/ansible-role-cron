@@ -15,24 +15,25 @@ This example is taken from `molecule/default/playbook.yml` and is tested on each
 ---
 - name: Converge
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: false
 
   roles:
-    - role: tehtbl.bootstrap
-    - role: tehtbl.cron
-      cron_jobs:
-        - name: requested job
-          job: "ls -alh > /dev/null"
-        - name: requested job by the minute
-          minute: "23"
-          job: "ls -alh > /dev/null"
-        - name: requested job by the hour
-          hour: "23"
-          job: "ls -alh > /dev/null"
-        - name: requested job by the weekday
-          weekday: "1"
-          job: "ls -alh > /dev/null"
+    - tehtbl.role: cron
+
+```
+
+The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
+
+```yaml
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: false
+
+  roles:
+    - tehtbl.role: tehtbl.bootstrap
 
 ```
 
@@ -45,12 +46,11 @@ Requirements
 ============
 
 - Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible (Tests run on the current, previous and next release of Ansible).
+- A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
 
 The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
 
 ```yaml
----
 - tehtbl.bootstrap
 
 ```
@@ -133,7 +133,7 @@ vagrant up
 License
 =======
 
-GNU General Public License v3.0
+MIT License
 
 Author Information
 ==================
