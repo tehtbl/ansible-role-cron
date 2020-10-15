@@ -2,8 +2,7 @@
 gid: 44971
 name: cron
 desc: Install cron and schedule jobs on a system.
-deps:
-  - tehtbl.bootstrap
+deps: []
 tags:
   - cron
   - schedule
